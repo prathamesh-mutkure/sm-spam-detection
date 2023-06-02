@@ -49,6 +49,10 @@ fb_svm_model = joblib.load("facebook/fb_svm_model.sav")
 fb_knn_model = joblib.load("facebook/fb_knn_model.sav")
 fb_dt_model = joblib.load("facebook/fb_dt_model.sav")
 
+insta_svm_model = joblib.load("insta/insta_svm_model.sav")
+insta_knn_model = joblib.load("insta/insta_knn_model.sav")
+insta_dt_model = joblib.load("insta/insta_dt_model.sav")
+
 
 @app.route("/hello", methods=['GET'])
 def hello():
@@ -159,6 +163,40 @@ def fb_predict():
     # print(output);
 
     # return jsonify({'message': output}), 200
+
+
+@app.route('/instagram.html', methods=['GET', 'POST'])
+def insta_predict():
+    if request.method == 'POST':
+
+        file = request.files['file']
+        df_full = pd.read_csv(file)
+
+        selected_option = request.form['model']
+
+        df = df_full.head(10)
+
+        df['fake'].replace([0,1], ['Legitimate', 'Fake'], inplace=True)
+        df['fake'] = pd.Categorical(df['fake']).codes
+
+        if selected_option == "svm":
+            output = insta_svm_model.predict(df.drop(["fake"], axis=1)).tolist()
+        elif selected_option == "knn":
+            output = insta_knn_model.predict(df.drop(["fake"], axis=1)).tolist()
+        else:
+            output = insta_dt_model.predict(df.drop(["fake"], axis=1)).tolist()
+            
+
+        df.loc[:, "fake"] = output;
+        df['fake'].replace([0,1], ['Legitimate', 'Fake'], inplace=True)
+
+        df = df.rename(columns={'fake': selected_option})
+
+        return render_template("instagram.html", data=df.to_html())
+    
+
+    return render_template("instagram.html")
+
 
 
 @app.route('/<template_name>', methods=['GET'])

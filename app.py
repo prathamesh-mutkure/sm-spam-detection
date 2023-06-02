@@ -64,6 +64,11 @@ def hello():
     return "Hello World", 200
 
 
+@app.route("/", methods=['GET'])
+def index():
+    return render_template("index.html")
+
+
 # Register route
 @app.route('/register', methods=['POST'])
 def register():

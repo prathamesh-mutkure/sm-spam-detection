@@ -1,78 +1,75 @@
-body{
+body {
   margin: 0%;
   padding: 0%;
-  font-family: 'Times New Roman', Times, serif;
-
+  font-family: "Times New Roman", Times, serif;
 }
 .bg-video-wrap {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 100vh;
-  background : url("C:\Users\Asus\Desktop\vsbe\GivingBelatedDingo.mp4");
+  background: url("C:\Users\Asus\Desktop\vsbe\GivingBelatedDingo.mp4");
 }
 video {
   min-width: 100%;
   min-height: 100vh;
   z-index: 1;
-}  
-
-.navigation{
-  padding-top:30px;
-  padding-bottom:30px;
-  position:absolute;
-  top:0;
-  width:100%;
-  z-index:1;
 }
 
-.navbar-right{
-  text-align:right;
-
-  padding-right:10%;
+.navigation {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-.navbar-right a{
-  text-decoration:none;
-  padding:10px;
+.navbar-right {
+  text-align: right;
+
+  padding-right: 10%;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  padding: 10px;
   color: #fff;
-  font-family:Arial;
-  font-weight:900;
+  font-family: Arial;
+  font-weight: 900;
 }
 
-.navbar-right a:hover{
-  text-decoration:underline;
+.navbar-right a:hover {
+  text-decoration: underline;
 }
-.navbar-logo{
-  padding-left:10%;
-  font-family:Arial;
-  font-size:30px;
-  font-weight:bold;
-  text-decoration:none;
-  color:#fff; 
+.navbar-logo {
+  padding-left: 10%;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
 }
 
 .video-container {
-z-index: -100;
-width:100%;
-height:75%;
-overflow:hidden;
-position:absolute;
-top:0;
-left:0;
+  z-index: -100;
+  width: 100%;
+  height: 75%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-#video-bg{
-  width:100%;
- 
+#video-bg {
+  width: 100%;
 }
 
 .card-container {
   display: flex;
-  justify-content:safe;
+  justify-content: safe;
   max-width: 10001px;
   margin: 0 auto;
-  
 }
 
 .card {
@@ -93,8 +90,6 @@ left:0;
   margin-bottom: 20px;
 }
 
-
-
 .progress-bar {
   width: 100%;
   height: 20px;
@@ -106,14 +101,18 @@ left:0;
 .progress {
   width: 0%;
   height: 100%;
-  background-color:aqua; /* Adjust the progress bar color */
+  background-color: aqua; /* Adjust the progress bar color */
   transition: width 1s linear; /* Add transition for smooth animation */
 }
 
 /* Add animation to the progress bar */
 @keyframes progress-animation {
-  0% { width: 0%; }
-  100% { width: 100%; }
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 /* Apply the animation to the progress bar */
@@ -121,49 +120,41 @@ left:0;
   animation: progress-animation 3s linear infinite;
 }
 
-
-
-
-
-
 .card img {
   width: 50px; /* Adjust the size of the image */
   animation: gif-effect 6s infinite; /* Apply the animation */
-  
 }
 
 @keyframes gif-effect {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-
-
-
-
-
-
-
 
 .logo {
   background-image: url("C:\Users\Asus\Desktop\vsbe\facebook.png");
   background-repeat: no-repeat;
   background-size: contain;
-  text-indent: -9999px; 
-  height:min-content;
-  width:min-content;
+  text-indent: -9999px;
+  height: min-content;
+  width: min-content;
 }
 
-
 .container {
-  background-image: url('your-background-image.jpg');
+  background-image: url("your-background-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  
 }
 
-.grid-container {
+.grid-container,
+table {
   border-collapse: collapse;
   width: 100%;
   padding: 100px;
@@ -171,28 +162,25 @@ left:0;
 }
 
 .attribute-row th,
-.data-row td {
+.data-row td,
+tr,
+th,
+td {
   border: 1px solid #ccccccea;
   padding: 10px;
   text-align: center;
   font-weight: bold;
-  
+  background-color: #fff;
 }
 
 .attribute-row th {
   background-color: #f2f2f2;
 }
-
-
 
 .data-row td {
   background-color: #fff;
 }
 
-
-
-
-
 .data-row1 td {
   border: 1px solid #ccc;
   padding: 8px;
@@ -207,7 +195,6 @@ left:0;
 .data-row1 td {
   background-color: #fff;
 }
-
 
 .data-row2 td {
   border: 1px solid #ccc;
@@ -224,8 +211,6 @@ left:0;
   background-color: #fff;
 }
 
-
-
 .data-row3 td {
   border: 1px solid #ccc;
   padding: 8px;
@@ -240,19 +225,3 @@ left:0;
 .data-row3 td {
   background-color: #fff;
 }
-
-
-
-
-
-                        
-                      
-
-                        
-
-
-
-
-
-
-

@@ -129,7 +129,7 @@ def fb_predict():
         selected_option = request.form['model']
 
         # df_full = pd.read_csv('facebook/facebook-dataset.csv')
-        df = df_full.head(10)
+        df = df_full
 
         df['Label'].replace([0,1], ['Legitimate', 'Fake'], inplace=True)
         df.drop('profile id', axis=1, inplace=True)
@@ -184,7 +184,7 @@ def insta_predict():
 
         selected_option = request.form['model']
 
-        df = df_full.head(10)
+        df = df_full
 
         df['fake'].replace([0,1], ['Legitimate', 'Fake'], inplace=True)
         df['fake'] = pd.Categorical(df['fake']).codes
@@ -217,7 +217,7 @@ def twt_predict():
 
         selected_option = request.form['model']
 
-        df = df_full.head(10)
+        df = df_full
 
         print(df)
 

@@ -53,6 +53,11 @@ insta_svm_model = joblib.load("insta/insta_svm_model.sav")
 insta_knn_model = joblib.load("insta/insta_knn_model.sav")
 insta_dt_model = joblib.load("insta/insta_dt_model.sav")
 
+twt_svm_model = joblib.load("twt/twt_svm_model.sav")
+twt_knn_model = joblib.load("twt/twt_knn_model.sav")
+twt_dt_model = joblib.load("twt/twt_dt_model.sav")
+twt_rf_model = joblib.load("twt/twt_rf_model.sav")
+
 
 @app.route("/hello", methods=['GET'])
 def hello():
@@ -196,6 +201,43 @@ def insta_predict():
     
 
     return render_template("instagram.html")
+
+
+@app.route('/twitter.html', methods=['GET', 'POST'])
+def twt_predict():
+    if request.method == 'POST':
+
+        file = request.files['file']
+        df_full = pd.read_csv(file)
+
+        selected_option = request.form['model']
+
+        df = df_full.head(10)
+
+        print(df)
+
+        df['Label'].replace([0,1], ['Legitimate', 'Fake'], inplace=True)
+        df['Label'] = pd.Categorical(df['Label']).codes
+
+        if selected_option == "svm":
+            output = twt_svm_model.predict(df.drop(["Label"], axis=1)).tolist()
+        elif selected_option == "knn":
+            output = twt_knn_model.predict(df.drop(["Label"], axis=1)).tolist()
+        elif selected_option == "rf":
+            output = twt_rf_model.predict(df.drop(["Label"], axis=1)).tolist()
+        else:
+            output = twt_dt_model.predict(df.drop(["Label"], axis=1)).tolist()
+            
+
+        df.loc[:, "Label"] = output;
+        df['Label'].replace([0,1], ['Legitimate', 'Fake'], inplace=True)
+
+        df = df.rename(columns={'Label': selected_option})
+
+        return render_template("twitter.html", data=df.to_html())
+    
+
+    return render_template("twitter.html")
 
 
 

@@ -68,7 +68,26 @@
                   </div>
               </div>
 
-              <form action="/action_page.php">
+              <form
+                action="/twitter.html"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <label for="cars">Choose a car:</label>
+
+                <input type="file" name="file" accept=".csv" required />
+
+                <select name="model" id="model">
+                  <option value="dt">DT</option>
+                  <option value="knn">KNN</option>
+                  <option value="svm" selected>SVM</option>
+                  <option value="rf">RF</option>
+                </select>
+                <br /><br />
+                <input type="submit" value="Submit" />
+              </form>
+
+              <!-- <form action="/action_page.php">
                 <label for="cars">Choose a car:</label>
                 <select name="cars" id="cars">
                   <option value="volvo">Volvo</option>
@@ -78,7 +97,7 @@
                 </select>
                 <br><br>
                 <input type="submit" value="Submit">
-              </form>
+              </form> -->
 
 
 
@@ -183,7 +202,7 @@
 
 
               
-              
+              {{data|safe}}
 
 
 

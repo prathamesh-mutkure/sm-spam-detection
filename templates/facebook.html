@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/facebook.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <title>FacebookDashboard</title>
+
+    <body>
+      <video
+        src="/static/GivingBelatedDingo.mp4"
+        class="video.bg"
+        autoplay
+        loop
+        muted
+      ></video>
+
+      <header>
+        <div class="header">
+          <nav class="navigation">
+            <a href="/#" class="navbar-logo">FACEBOOK</a>
+
+            <div class="navbar-right">
+              <a href="/index.html">home</a>
+              <a href="/facebookloginpage.html">login</a>
+              <a href="/Contactuspage.html">Contact</a>
+              <a href="/myprofile.html">myprofile</a>
+
+              <div class="card-container">
+                <div class="card">
+                  <img
+                    src="/static/facebook12.png"
+                    alt="Twitter Animated Icon"
+                  />
+                  <h2>Followers 456</h2>
+                  <p></p>
+                  <div class="progress-bar">
+                    <div class="progress"></div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <img
+                    src="/static/facebook12.png"
+                    alt="Twitter Animated Icon"
+                  />
+
+                  <h2>Followings 456</h2>
+                  <p></p>
+
+                  <div class="progress-bar">
+                    <div class="progress"></div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <img
+                    src="/static/facebook12.png"
+                    alt="Twitter Animated Icon"
+                  />
+                  <h2>Posts</h2>
+                  <p></p>
+
+                  <div class="progress-bar">
+                    <div class="progress"></div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <img
+                    src="/static/facebook12.png"
+                    alt="Twitter Animated Icon"
+                  />
+                  <h2>Profile</h2>
+                  <h2 class="logo"></h2>
+                  <p></p>
+                  <div class="progress-bar">
+                    <div class="progress"></div>
+                  </div>
+                </div>
+              </div>
+
+              <form
+                action="/facebook.html"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <label for="cars">Choose a car:</label>
+
+                <input type="file" name="file" accept=".csv" required />
+
+                <select name="model" id="model">
+                  <option value="dt">DT</option>
+                  <option value="knn" selected>KNN</option>
+                  <option value="svm">SVM</option>
+                </select>
+                <br /><br />
+                <input type="submit" value="Submit" />
+              </form>
+
+              <table class="grid-container">
+                <tr class="attribute-row">
+                  <th>Profile-Pic</th>
+                  <th>Username-Lenght</th>
+                  <th>Fullname-words</th>
+                  <th>Fullname-Lenght</th>
+                  <th>Username</th>
+                  <th>Description-lenght</th>
+                  <th>External URL</th>
+                  <th>Private</th>
+                  <th>#Posts</th>
+                  <th>#Followers</th>
+                  <th>Followings</th>
+                  <th>Fake</th>
+
+                  <!-- Add the remaining attribute headers -->
+                </tr>
+                <tr class="data-row">
+                  <td>1</td>
+                  <td>0.27</td>
+                  <td>0</td>
+                  <td>3</td>
+                  <td>0</td>
+                  <td>53</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>32</td>
+                  <td>1000</td>
+                  <td>955</td>
+                  <td>0</td>
+                </tr>
+                <tr class="data-row1">
+                  <td>1</td>
+                  <td>0</td>
+                  <td>2</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>44</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>286</td>
+                  <td>2740</td>
+                  <td>533</td>
+                  <td>0</td>
+                </tr>
+
+                <tr class="data-row2">
+                  <td>1</td>
+                  <td>0.1</td>
+                  <td>2</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>1</td>
+                  <td>13</td>
+                  <td>159</td>
+                  <td>98</td>
+                  <td>0</td>
+
+                  <!-- Add the remaining data cells -->
+                </tr>
+
+                <div class="container">
+                  <a href="/result.html">
+                    <button class="submit-button">Submit</button>
+                  </a>
+                </div>
+              </table>
+
+              {{ data|safe }}
+            </div>
+          </nav>
+        </div>
+      </header>
+    </body>
+  </head>
+</html>

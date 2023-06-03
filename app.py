@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
@@ -12,6 +12,9 @@ import numpy as np
 from sklearn import model_selection
 from scipy import stats
 import joblib
+
+import io
+
 
 app = Flask(__name__)
 
@@ -149,6 +152,8 @@ def fb_predict():
 
         df = df.rename(columns={'Label': selected_option})
 
+        df.to_csv('/tmp/result.csv')
+
         return render_template("facebook.html", data=df.to_html())
     
 
@@ -202,6 +207,8 @@ def insta_predict():
 
         df = df.rename(columns={'fake': selected_option})
 
+        df.to_excel('/tmp/result.xlxs')
+
         return render_template("instagram.html", data=df.to_html())
     
 
@@ -239,11 +246,18 @@ def twt_predict():
 
         df = df.rename(columns={'Label': selected_option})
 
+        df.to_excel('/tmp/result.xlxs')
+
         return render_template("twitter.html", data=df.to_html())
     
 
     return render_template("twitter.html")
 
+
+@app.route('/download')
+def download():
+    file_path = '/tmp/result.csv'
+    return send_file(file_path, as_attachment=True)
 
 
 @app.route('/<template_name>', methods=['GET'])

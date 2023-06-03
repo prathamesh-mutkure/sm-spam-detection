@@ -207,7 +207,7 @@ def insta_predict():
 
         df = df.rename(columns={'fake': selected_option})
 
-        df.to_excel('/tmp/result.xlxs')
+        df.to_csv('/tmp/result.csv')
 
         return render_template("instagram.html", data=df.to_html())
     
@@ -246,7 +246,7 @@ def twt_predict():
 
         df = df.rename(columns={'Label': selected_option})
 
-        df.to_excel('/tmp/result.xlxs')
+        df.to_csv('/tmp/result.csv')
 
         return render_template("twitter.html", data=df.to_html())
     
